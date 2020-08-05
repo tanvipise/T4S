@@ -18,11 +18,13 @@ from django.urls import path
 from django.conf.urls import url
 from client.views import profile_match
 from client.views import index
+from client.views import coach_sessions
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('profile_match', profile_match),
+    path('coach_sessions', coach_sessions),
     # path('profile_match/', views.profile_match),
 
     # url('profile_match', views.profile_match, name='Profile Match'),

@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+
+{{object.session_details}}
+<br>
+{{object.no_of_quiz}}
+<br>
+
+{{object.hrs_of_quiz}}
+<br>
+
+{{object.no_of_video}}
+<br>
+
+{{object.hrs_of_video}}
+<br>
+
+{{object.no_of_images}}
+<br>
+
+{{object.hrs_of_images}}
+
+{% endblock %}
 
 <head>
     <title>Tech4stress</title>

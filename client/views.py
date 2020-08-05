@@ -13,6 +13,7 @@ import random
 import json
 
 from .models import Client
+from .models import Coach_sessions
 
 
 def index(request):
@@ -29,6 +30,15 @@ def profile_match(request):
 
     return render(request, 'profile_match.html', context)
 
+
+def coach_sessions(request):
+    obj = Coach_sessions.objects.get(id=1)
+    context = {
+        'object': obj
+
+    }
+
+    return render(request, 'coach_sessions.html', context)
 
 # def profile_match(request, *args, **kwargs):
 # if request.method == 'POST':
