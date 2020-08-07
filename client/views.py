@@ -13,7 +13,9 @@ import random
 import json
 
 from .models import Client
-from .models import Coach_sessions
+from .models import Coach_sessions, User_signup
+
+from .forms import CoachSessionForm, UserSignupForm
 
 
 def index(request):
@@ -40,6 +42,41 @@ def coach_sessions(request):
 
     return render(request, 'coach_sessions.html', context)
 
+
+def coach_session_create(request):
+    form = CoachSessionForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit=True)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'coach_session_create.html', context)
+
+
+def signup(request):
+    form = UserSignupForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit=True)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'signup.html', context)
+
+
+def login(request):
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit=True)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'signup.html', context)
 # def profile_match(request, *args, **kwargs):
 # if request.method == 'POST':
 #     print(request.POST.dict())
