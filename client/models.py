@@ -13,7 +13,7 @@ class Client(models.Model):
 
 
 class Coach_sessions(models.Model):
-    session_details = models. TextField()
+    session_details = models.TextField()
 
     no_of_quiz = models.BigIntegerField()
     hrs_of_quiz = models.BigIntegerField()
@@ -26,3 +26,12 @@ class Coach_sessions(models.Model):
 
     no_of_images = models.BigIntegerField()
     hrs_of_images = models.BigIntegerField()
+
+
+class User_signup(models.Model):
+    name = models.CharField(max_length=120)
+    email = models.EmailField()
+    password = models.CharField(max_length=32)
+    password2 = models.CharField(max_length=32)
+    country = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
