@@ -1,59 +1,11 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-{{object.firstName}}
-<br>
-{{object.lastName}}
-<br>
 
-{{object.about}}
-<br>
 
-{{object.experience}}
-<br>
 
-{{object.skills}}
-<br>
 
-{{object.location}}
-
-<!DOCTYPE html>
-
-<head>
-    <title>Tech4stress</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/jquery-3.5.1.min.js"> </script>
-    <script src="assets/js/bootstrap.js"></script>
-</head>
-
-<body id="home">
-    <nav class="navbar navbar-expand-lg top-navabar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="assets/img/TECH4STESS.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars menu-bar"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html#product">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <a href="signup.html"> <input type="button" class="btn" value="Signup/Login"></a>
-    </nav>
     <div class="page-heading">
         <div class="container">
             <p>Our Coaches</p>
@@ -65,19 +17,20 @@
             <div class="row">
                 <div class="col-md-8">
 
+                    {% for object in object %}
                     <div class="card">
                         <div class="row">
                             <div class="col-md-2">
-                                <img src="assets/img/testimonial1.png" class="coach">
+                                <img src="{% static 'img/testimonial1.png' %}" class="coach">
                             </div>
                             <div class="col-md-5">
-                                <p class="coachname">Jimmy De castel</p>
-                                <p>Kansas City, United States</p>
+                                <p class="coachname">{{object.firstName}} {{object.lastName}} </p>
+                                <p>{{object.location}}
+                                </p>
                             </div>
                         </div>
                         <p class="about-coach">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.It has survived
-                            not only five centuries....
+                            {{object.about}}....
                             <a href="">Know More</a>
                         </p>
                         <div class="row">
@@ -113,126 +66,15 @@
                                 </table>
                             </div>
                             <div class="col-md-6">
-                                <p>Specialized in - <b>Homophobia, Fitness</b> </p>
+                                <p>Specialized in - <b>{{object.skills}}</b> </p>
+                                <p>Experience - {{object.experience}}</p>
                                 <p><b>Price : 300$</b></p>
-                                <a href="signup.html"><button type="button" class="btnResgister">Click here to
+                                <a><button type="button" class="btnResgister">Click here to
                                         Register</button></a>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="assets/img/testimonial1.png" class="coach">
-                            </div>
-                            <div class="col-md-5">
-                                <p class="coachname">Jimmy De castel</p>
-                                <p>Kansas City, United States</p>
-                            </div>
-                        </div>
-                        <p class="about-coach">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.It has survived
-                            not only five centuries....
-                            <a href="">Know More</a>
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <table border="1" class="session-table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Sessions</th>
-                                            <th>Number</th>
-                                            <th>Timing</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Quizes &amp; Games</td>
-                                            <td>60</td>
-                                            <td>5 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Video lectures</td>
-                                            <td>40</td>
-                                            <td>2 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Music</td>
-                                            <td>15</td>
-                                            <td>2 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Images</td>
-                                            <td>2450</td>
-                                            <td>1.3 hours</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Specialized in - <b>Homophobia, Fitness</b> </p>
-                                <p><b>Price : 300$</b></p>
-                                <a href="signup.html"><button type="button" class="btnResgister">Click here to
-                                        Register</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="assets/img/testimonial1.png" class="coach">
-                            </div>
-                            <div class="col-md-5">
-                                <p class="coachname">Jimmy De castel</p>
-                                <p>Kansas City, United States</p>
-                            </div>
-                        </div>
-                        <p class="about-coach">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.It has survived
-                            not only five centuries....
-                            <a href="">Know More</a>
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <table border="1" class="session-table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Sessions</th>
-                                            <th>Number</th>
-                                            <th>Timing</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Quizes &amp; Games</td>
-                                            <td>60</td>
-                                            <td>5 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Video lectures</td>
-                                            <td>40</td>
-                                            <td>2 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Music</td>
-                                            <td>15</td>
-                                            <td>2 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Images</td>
-                                            <td>2450</td>
-                                            <td>1.3 hours</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Specialized in - <b>Homophobia, Fitness</b> </p>
-                                <p><b>Price : 300$</b></p>
-                                <a href="signup.html"><button type="button" class="btnResgister">Click here to
-                                        Register</button></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-
+                    {% endfor %}
                 </div>
 
                 <div class="col-md-4">
@@ -279,7 +121,5 @@
         </div>
     </div>
     </div>
-</body>
 
-</html>
 {% endblock %}

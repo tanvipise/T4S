@@ -20,6 +20,7 @@ from client.views import profile_match
 from client.views import index
 from client.views import coach_sessions
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
