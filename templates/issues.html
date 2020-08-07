@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="page-heading">
+    <div class="container">
+       <p>Tell us your problem</p>
+    </div>
+ </div>
+   <div class="page-content">
+    <div class="container">
+                        <div class="row">
+                            <form action="profile_match" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p class="yrs-of-exp">
+                                    How many years of experience are you looking for in your coach?
+                                </p>
+                                <input type="text" id=yr name="yr"><br>
+                                <input type="submit" value=" Submit ">
+                            </form>
+                        </div>
+        <div class="issues">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 col-12 col-sm-12">
+                    <div class="row issue-icons">
+                      <div class="col-md-4">
+                        <a href="coach_list.html">
+                         <div class="issue-content">
+                           <p class="issue-icn"> <i class="fa fa-user-o" aria-hidden="true"></i></p>
+                           <p class="issue_name"> Homophobia</p>
+                        </div>
+                        </a>
+                        </div>
+                       <div class="col-md-4">
+                        <a href="coach_list.html">
+                            <div class="issue-content">
+                            <p class="issue-icn">  <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+                            <p class="issue_name">Racism</p>
+                            </div>
+                            </a>
+                        </div>
+                       <div class="col-md-4">
+                            <a href="coach_list.html">
+                           <div class="issue-content">
+                            <p class="issue-icn"> <i class="fa fa-hand-o-right" aria-hidden="true"></i></p>
+                            <p class="issue_name">Divorce</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="coach_list.html">
+                                <div class="issue-content">
+                            <p class="issue-icn"> <i class="fa fa-bicycle" aria-hidden="true"></i></p>
+                            <p class="issue_name">Fitnees</p>
+                                </div>
+                                </a>
+                        </div>
+                    <div class="col-md-4">
+                        <a href="coach_list.html">
+                            <div class="issue-content">
+                            <p class="issue-icn"> <i class="fa fa-diamond" aria-hidden="true"></i></p>
+                            <p class="issue_name">Focus</p>
+                            </div>
+                            </a>
+                        </div>
+                  <div class="col-md-4">
+                            <a href="coach_list.html">
+                            <div class="issue-content">
+                            <p class="issue-icn"> <i class="fa fa-eye" aria-hidden="true"></i></p>
+                            <p class="issue_name">Vision</p>
+                            </div>
+                            </a>
+                        </div>
+                         <div class="col-md-4">
+                        <a href="coach_list.html">
+                        <div class="issue-content">
+                        <p class="issue-icn"> <i class="fa fa-building-o" aria-hidden="true"></i></p>
+                        <p class="issue_name">Business</p>
+                        </div>
+                        </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="coach_list.html">
+                                <div class="issue-content">
+                            <p class="issue-icn"> <i class="fa fa-heart-o" aria-hidden="true"></i></p>
+                            <p class="issue_name">Health</p>
+                                </div>
+                                </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="coach_list.html">
+                                <div class="issue-content">
+                                <p class="issue-icn"> <i class="fa fa-exclamation" aria-hidden="true"></i></p>
+                                <p class="issue_name">Depression</p>
+                                </div>
+                            </a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+   {% endblock %}

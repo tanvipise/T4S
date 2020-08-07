@@ -16,19 +16,24 @@ from .models import Coach_sessions, User_signup
 
 from .forms import CoachSessionForm, UserSignupForm
 
-
 def index(request):
-    context = {'a': 'Hi there'}
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+def conditions(request):
+    return render(request, 'conditions.html')
+
+def issues(request):
+    context = {'a': 'Hi there'}
+    return render(request, 'issues.html', context)
 
 def profile_match(request):
     obj = Client.objects.all().order_by('-id')[:5]    
     context = {
         'object': obj
-
     }
-
     return render(request, 'profile_match.html', context)
 
 

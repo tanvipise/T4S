@@ -21,6 +21,9 @@ from client.views import index
 from client.views import coach_sessions
 from client.views import coach_session_create
 from client.views import signup
+from client.views import issues
+from client.views import privacy_policy
+from client.views import conditions
 
 
 urlpatterns = [
@@ -29,6 +32,9 @@ urlpatterns = [
     path('coach_sessions', coach_sessions),
     path('coach_session_create', coach_session_create),
     path('signup', signup),
+    path('issues', issues),
+    path('privacy_policy', privacy_policy),
+    path('conditions', conditions),
     path('', index),
 
 
