@@ -35,3 +35,4 @@ class User_signup(models.Model):
     password2 = models.CharField(max_length=32)
     country = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
+
