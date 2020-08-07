@@ -22,6 +22,7 @@ from client.views import coach_sessions
 from client.views import coach_session_create
 from client.views import signup
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('profile_match', profile_match),

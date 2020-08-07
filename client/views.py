@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-import pandas as pd
-import numpy as np
+
 
 import itertools as it
 # import matplotlib.pyplot as plt
@@ -24,7 +23,7 @@ def index(request):
 
 
 def profile_match(request):
-    obj = Client.objects.get(id=1)
+    obj = Client.objects.all().order_by('-id')[:5]    
     context = {
         'object': obj
 
