@@ -2,6 +2,17 @@
 {% extends 'index.html' %}
 {% block content %}
 
+
+<form action="profile_match.html" method="GET">
+    <input type="text" name="session_details"> {{ object.session_details }}
+    <input type="submit" value="Search">
+</form>
+
+
+
+
+
+
 {{object.session_details}}
 <br>
 {{object.no_of_quiz}}

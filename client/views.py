@@ -1,7 +1,10 @@
+from itertools import islice
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
 
+from itertools import islice
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 import itertools as it
 # import matplotlib.pyplot as plt
@@ -23,7 +26,7 @@ def index(request):
 
 
 def profile_match(request):
-    obj = Client.objects.all().order_by('-id')[:5]    
+    obj = Client.objects.all().order_by('-id')[:5]
     context = {
         'object': obj
 
@@ -76,39 +79,78 @@ def login(request):
     }
 
     return render(request, 'signup.html', context)
-# def profile_match(request, *args, **kwargs):
-# if request.method == 'POST':
-#     print(request.POST.dict())
-#     request.POST.get('yr')
 
-# skills = ['Racism', 'Divorce', 'Mental Abuse', 'Physical Abuse', 'Drug Addiction',
-#           'Alcohol Addiction', 'Stress', 'Depression', 'Unemployment']  # 9 skills
-# city = ['New York City', 'Los Angeles', 'San Francisco', 'Washington DC',
-#         'Las Vegas', 'Miami', 'Phoenix', 'Chicago', 'Boston', 'Houston']  # 10 cities
-# comb, skills_com = [], []
-# for i in range(1, len(skills)+1):
-#     com = [list(x) for x in combinations(skills, i)]
-#     comb.append(com)
 
-# for i in comb:
-#     for j in i:
-#         skills_com.append(tuple(j))
+def coach(jobs1, pref):
 
-# data = []
-# dict = {'exp': '0', 'skills': '0', 'city': '0'}
+    jobs1['words'] = jobs1.Expertise.str.strip().str.split('[\W_]+')
 
-# for dicts in list(range(0, 1000)):
-#     data.append(dict.copy())
+    vectorizer = TfidfVectorizer(
+        tokenizer=lambda doc: doc, lowercase=False, stop_words='english', use_idf=True, norm='l1')
+    Y = vectorizer.fit_transform(jobs1['words'])
 
-# for i in data:
-#     i['exp'] = int(random.choice(exp))
-#     i['skills'] = random.choice(skills_com)
-#     i['city'] = random.choice(city)
-# context = {
-#     'exp': [1, 2, 3, 4, 5, 6, 7],
+    Y = pd.DataFrame(Y.toarray(), columns=vectorizer.get_feature_names())
 
-#     'skills': skills,
-#     'city': city,
-# }
+    skills = pref[0]
 
-# return render(request, 'profile_match.html', context)
+    X = vectorizer.transform(skills)
+
+    X = pd.DataFrame(X.toarray(), columns=vectorizer.get_feature_names())
+    # print(X)
+
+    similarity = (cosine_similarity(X, Y))
+    similarity.shape
+    # print(similarity)
+
+    def find_similar(tfidf_matrix, index, top_n):
+        cosine_similarities = cosine_similarity(Y, tfidf_matrix).flatten()
+        related_docs_indices = [i for i in cosine_similarities.argsort()[
+            ::-1] if i != index]
+        return [(index, cosine_similarities[index]) for index in related_docs_indices][0:top_n]
+
+    num = 10
+    rec_jobs = find_similar(X, 1, num)
+
+    a = []
+    for i in range(0, num):
+        mn = rec_jobs[i][0] % len(jobs1)
+        a.append(jobs.loc[mn].tolist())
+    # print(a)
+
+    Output = []
+    for i in range(len(a)):
+        Output.append([a[i][0], a[i][1]])
+    # print(Output)
+
+    def Sort(sub_li):
+        sub_li.sort(key=lambda x: x[1], reverse=True)
+        return sub_li
+    Sort(Output)
+
+    # print(Sort(Output))
+
+    OutputAdd = []
+    for i in range(len(a)):
+        OutputAdd.append([a[i][0], a[i][2]])
+
+    LocSorted = []
+    for z in range(len(OutputAdd)):
+        if OutputAdd[z][1] == pref[2]:
+            LocSorted.append(OutputAdd[z])
+
+    Outputfin = []
+    for z in range(len(LocSorted)):
+        if Output[z][0] == LocSorted[z][0]:
+            Outputfin.append([Output[z][0], Output[z][1], LocSorted[z][1]])
+
+    Final_Rec = []
+    for m in range(len(a)):
+        for n in range(len(Outputfin)):
+            if a[m][0] == Outputfin[n][0]:
+                Final_Rec.append([a[m][0], a[m][1], a[m][2], a[m][3]])
+
+    return Final_Rec
+
+
+pref = [['Homophobia', 'Divorce'], 3, 'East Coast']
+coach(jobs, pref)
