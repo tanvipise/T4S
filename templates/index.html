@@ -1,160 +1,189 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-
-<body>
-
-    <section id='nav-bar'>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Tech4stress</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown">
-                            About Us
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="tech4stress">Tech4stress</a>
-                            <a class="dropdown-item" href="ceo">Our CEO</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="pressandmedia">Press and Media</a>
-                            <a class="dropdown-item" href="careers">Careers</a>
-                        </div>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="clients.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-
-    </section>
-
-    <!-- Banner section -->
-    <section id="clients">
-        <div class="container">
-            <div class="row">
-
-                <p class="client-title">
-                    What do you need in your Coach?
-                </p>
-
-
-            </div>
-    </section>
-
-    <section>
-        <div class="container">
-
-            <div class="row">
-
-                <form action="profile_match" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p class="yrs-of-exp">
-                        How many years of experience are you looking for in your coach?
-                    </p>
-
-                    <input type="text" id=yr name="yr"><br>
-
-                    <!-- <select id="exp">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 +</option>
-
-                    </select> -->
-                    <br>
-
-
-
-                    <input type="submit" value=" Submit ">
-
-                </form>
-
-            </div>
-
-        </div>
-        <!-- <div class="container">
-            <p class="region">
-                Which region?
-            </p>
-            <div class="row">
-                <form action="clients2.html" method="GET">
-                    <select id="exp">
-                        <option value="East Coast">East Coast</option>
-                        <option value="West Coast">West Coast</option>
-                        <option value="Mid-West">Mid-West</option>
-                        <option value="+">+</option>
-
-                    </select>
-                    <br>
-
-                    <input type="submit" value=" Submit ">
-                </form>
-            </div>
-
-        </div> -->
-    </section>
-
-    <section class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <p class="community"> Our Community </p>
-
+<div class="home-section text-center" >
+    <div class="container">
+       <div class="home-text">
+          <div class="row">
+             <div class="col-md-10">
+                <h1>Did you know 99% of the Fortune 500 company CEOs are white?</h1>
+                <p>Talk to a coach, share your ambitions with friends, be part of the solution!</p>
+                <input type="button" class="btn" value="View Demo">
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- Container (Product Section) -->
+ <div id="product" class="product-section">
+    <div class="first-product-section">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-6">
+                <p class="main-text">The Coaching Platform</p>
+                <p class="sub-text">Get in touch with a coach <br/>anytime, anywhere</p>
+                <a href="product.html">   <input type="button" class="btn btn-primary product-btn" value="Try for free"></a>
+             </div>
+             <div class="col-sm-6">
+                <div class="product-img">
+                   <img src="{% static 'img/product1.png' %}">
                 </div>
-                <div class="col-md-4">
-                    <p class="blog"> Blog </p>
-
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="second-product-section">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-6">
+                <div class="product-img">
+                   <img src="{% static 'img/product2.png' %}">
                 </div>
-                <div class="col-md-4">
-                    <p class="faq"> FAQ </p>
-
+             </div>
+             <div class="col-md-6">
+                <p class="main-text">Share your point of view with peers</p>
+                <p class="sub-text">Connect with like minded people and try to build a great community</p>
+               <input type="button" class="btn btn-primary product-btn" value="Try for free">
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="third-product-section">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-6">
+                <p class="main-text"> A unique experience for your users</p>
+                <p class="sub-text">Get in touch with a coach anytime, anywhere</p>
+                <input type="button" class="btn btn-primary product-btn" value="Try for free">
+             </div>
+             <div class="col-sm-6">
+                <div class="product-img">
+                   <img src="{% static 'img/product3.png' %}">
                 </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="testimonial-section">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-6 test-column">
+             <div class="testimonial-card">
+                <div class="testimonial-img">
+                   <img src="{% static 'img/testimonial1.png' %}" >
+                </div>
+                <div class="testimonial-text">
+                   <p class="name">Testimonial Name</p>
+                   <p class="title">Title</p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="test-desc">
+                   <p>“ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the “  </p>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-6 test-column">
+             <div class="testimonial-card">
+                <div class="testimonial-img">
+                   <img src="{% static 'img/testimonial1.png' %}" >
+                </div>
+                <div class="testimonial-text">
+                   <p class="name">Testimonial Name</p>
+                   <p class="title">Title</p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="test-desc">
+                   <p>“ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the “  </p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div id="about" class="about-section">
+    <div class="container">
+       <div class="row about-row">
+          <div class="col-md-12">
+             <h2 class="text-center">About Us</h2>
+             <p class="aboutus-text text-center">We help African and African American, Coaches, and Organizations to find together rapid solutions to over come the challenges posed by Racism.</p>
+          </div>
+       </div>
+       <div class="row text-center">
+        
+          <div class="col-md-4 offset-md-4">
+             <img src="{% static 'img/about.png' %}" class="aboutus-img">
+             <p class="aboutus-name">Patrice</p>
+             <p class="aboutus-title">CEO</p>
+          </div>
+         
+       </div>
+       <div class="row text-center about-row">
+          <div class="col-md-4">
+             <div class="aboutus-card">
+                <h4>Vision</h4>
+                <p>Tech4stress Vision is to eradicate the ignorance of people and organization, which result in communities fights, generate bad feelings and inadequate powerdynamics</p>
+             </div>
+          </div>
+          <div class="col-md-4" >
+             <div class="aboutus-card">
+                <h4>Mission</h4>
+                <p>Our mission is to provide support to African American, to share successful stories of Leaders, and rebuild each community </p>
+                <br/>
+             </div>
+          </div>
+          <div class="col-md-4">
+             <div class="aboutus-card">
+                <h4> Stratagy</h4>
+                <p>We partner with Leaders, Coaches, Schools, Colleges, Universities, MNCs, SMEs, Localcommunities, Cities, States, Governments who want to fight racism </p>
+                <br/>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div id="contact" class="contactus-section">
+    <div class="container">
+       <h2 class="text-center">Do you have question? </h2>
+       <div class="row">
+          <div class="col-md-3 ">
+             <div class="contact-icon"><img src="{% static 'img/icon3.png' %}"></div>
+             <div class="contact-desc">
+             <p class="contact-text ">E-mail address</p>
+             <p class="contact-info email-info">tech4stress@gmail.com</p>
+          </div>
+          </div>
+          
+          <div class="col-md-3 offset-md-1">
+             <div class="contact-icon"><img src="{% static 'img/icon1.png' %}"></div>
+             <div class="contact-desc">
+             <p class="contact-text">Connect with us </p>
+             <ul class="social-media-list">
+                <li> <a href="https://www.facebook.com/tech4stress" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li> <a href="https://twitter.com/search?q=tech4stress" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li> <a href="https://www.linkedin.com/company/tech4stress-career/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li> <a href="https://www.instagram.com/tech4stress/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              </ul>
+              </div>
+          </div>
+     
 
+          <div class="col-md-5 google-play-section">
+             <img src="{% static 'img/image.png' %}">
+          </div>
 
-            </div>
+       </div>
+    </div>
+ </div>
+ <div class="footer-section">
+    <ul>
+       <li><a>About</a></li>
+       <li><a>Product</a></li>
+       <li><a>Team</a></li>
+       <li><a>Resources</a></li>
+       <li>Privacy Policy</li>
+       <li>T&C</li>
+    </ul>
+ </div>
 
-        </div>
-
-    </section>
-
-</body>
-
-</html>
-{% endblock %}
+ {% endblock %}
