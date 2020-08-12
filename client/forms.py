@@ -31,3 +31,4 @@ class UserSignupForm(forms.ModelForm):
             'country',
             'state',
         ]
+# coach requirements by the user

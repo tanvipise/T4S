@@ -26,7 +26,6 @@ from client.views import privacy_policy
 from client.views import conditions
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('profile_match', profile_match),
