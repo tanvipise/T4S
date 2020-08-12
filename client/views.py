@@ -47,7 +47,7 @@ def profile_match(request):
 def coach_sessions(request):
     queryset = Coach_sessions.objects.all()
     context = {
-        'object': queryset,
+        'object_list': queryset,
     }
 
     return render(request, 'coach_sessions.html', context)
