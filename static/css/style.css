@@ -502,6 +502,7 @@ margin: 20px;
 padding:0;
 }
 
+
 .issue-icons .col-md-4 p{
     margin-bottom: 0px;
 }
@@ -560,7 +561,9 @@ padding:0;
 }
 .session-table td,.session-table th{
     padding: 5px;
+    margin-bottom: 20px;
 }
+
 /*Coach List Page*/
 
 /*Edit Coach Profile*/

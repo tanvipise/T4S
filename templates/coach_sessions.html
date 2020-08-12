@@ -2,65 +2,26 @@
 {% load static %}
 
 {% block content %}
-
-
-<!-- <form action="profile_match.html" method="GET">
-    <input type="text" name="session_details"> {{ object.session_details }}
-    <input type="submit" value="Search">
-</form> -->
-
-
-
-
-
-
-
-
-<br>
-
-
-<br>
-
-{{object.no_of_video}}
-<br>
-
-{{object.hrs_of_video}}
-<br>
-
-{{object.no_of_images}}
-<br>
-
-{{object.hrs_of_images}}
-
-
-
-
 <div class="page-heading">
     <div class="container">
         <p>Welcome, John Doe </p>
     </div>
 </div>
 <div class="page-content">
-    <div class="container">
-
-        {% for object in object_list %}
-        <div class="row">
+    <div class="container">    
+        <div class="row">      
             <div class="col-md-6 offset-md-3">
                 <form class="edit-coach-profile">
                     <div class="form-group form-input">
-                        <p>Session Details</p>{{object.session_details}}
+                        <p>Session Details</p>
                         <textarea class="form-control"></textarea>
                     </div>
                     <div class="form-group form-input">
-
                         <div class="row">
                             <div class="col"> Quiz & Games</div>
-                            <div class="col"> <input type="number" value="Number" placeholder="Number"></div>
-                            {{object.no_of_quiz}}
-                            <div class="col"><input type="text" placeholder="Hours" placeholder="Number"></div>
-                            {{object.hrs_of_quiz}}
+                            <div class="col"> <input type="number" value="Number" placeholder="Number"></div>                        
+                            <div class="col"><input type="text" placeholder="Hours" placeholder="Number"></div>                       
                         </div>
-
                     </div>
                     <div class="form-group form-input">
                         <div class="row">
@@ -88,10 +49,46 @@
                     </div>
                 </form>
             </div>
+        
         </div>
-
+        <div class="row">     
+                    {% for object in object_list %}
+                    <div class="col-md-4 ">
+                        <p>{{object.session_details}}</p>
+                        <table border="1" class="session-table">
+                            <tbody>  
+                             <tr>
+                               <th>Sessions</th>
+                               <th>Number</th>
+                               <th>Timing</th>
+                            </tr>
+                            <tr>
+                               <td>Quizes &amp; Games</td>
+                               <td>{{object.no_of_quiz}}</td>
+                               <td>
+                                {{object.hrs_of_quiz}}</td>
+                            </tr>
+                            <tr>
+                               <td>Video lectures</td>
+                               <td>{{object.no_of_video}}</td>
+                               <td>{{object.hrs_of_video}}</td>
+                            </tr>
+                            <tr>
+                               <td>Music</td>
+                               <td>{{object.no_of_music}}</td>
+                               <td>{{object.hrs_of_music}}</td>
+                            </tr>
+                            <tr>
+                               <td>Images</td>
+                               <td>{{object.no_of_images}}</td>
+                               <td>{{object.hrs_of_images}}</td>
+                            </tr>
+                         </tbody></table>              
+                    </div>
+                    {% endfor %}    
+         
+        </div>
     </div>
 </div>
 
-{% endfor %}
 {% endblock %}
